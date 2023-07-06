@@ -1,0 +1,14 @@
+WHITESPACE = _{ " " }
+
+char = { ASCII_ALPHANUMERIC | "." | "_" | "/" }
+name = @{ char+ } // One or more values
+value = @{ char* } // 0 or more values
+
+section = { "[" ~ name ~ "]" }
+property = { name ~ "=" ~ value } // there has to be a name, value can be empty
+
+file = {
+    SOI ~
+    ((section|property)? ~ NEWLINE)* ~
+    EOI
+}

@@ -1,0 +1,3 @@
+number = { ASCII_DIGIT+ }               // One or more decimal digits
+enclosed = { "(.." ~ number ~ "..)" }   // For instance, "(..6472..)"
+sum =  { number ~ " + " ~ number }      // For instane, "1362 + 12"
